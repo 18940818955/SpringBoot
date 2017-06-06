@@ -1,6 +1,6 @@
 # 28. Security
 
-如果Spring Security已经加入到classpath中，那么应用的所有http端点都会被'basic认证\(用户名密码方式\)'管理。如果想仅仅添加方法级的安全管理，可以在Security的Configuration类上加上`@EnableGlobalMethodSecurity ` 注解。更多信息请点击 [Spring Security Reference](http://docs.spring.io/spring-security/site/docs/4.2.2.RELEASE/reference/htmlsingle#jc-method).
+如果Spring Security已经加入到classpath中，那么应用的所有http端点都会被'basic认证\(用户名密码方式\)'管理。如果想仅仅添加方法级的安全管理，可以在Security的Configuration类上加上`@EnableGlobalMethodSecurity` 注解。更多信息请点击 [Spring Security Reference](http://docs.spring.io/spring-security/site/docs/4.2.2.RELEASE/reference/htmlsingle#jc-method).
 
 默认的`AuthenticationManager` 已经有了一个用户\(用户名是‘user’ ，密码是一个随即字符串，在应用启动时，密码会以INFO级别的LOG形式打印再控制台中\)
 
@@ -10,7 +10,7 @@ Using default security password: 78fa095d-3f4c-48b1-ad50-e24c31d5cf35
 
 | ![](http://docs.spring.io/spring-boot/docs/1.5.3.RELEASE/reference/htmlsingle/images/note.png.pagespeed.ce.9zQ_1wVwzR.png "\[Note\]") |
 | :--- |
-| If you fine-tune your logging configuration, ensure that the`org.springframework.boot.autoconfigure.security`category is set to log`INFO`messages, otherwise the default password will not be printed. |
+| 如果恁需要调整日志级别，请记住默认密码会在INFO级别时打印。`org.springframework.boot.autoconfigure.security` |
 
 You can change the password by providing a`security.user.password`. This and other useful properties are externalized via[`SecurityProperties`](https://github.com/spring-projects/spring-boot/tree/v1.5.3.RELEASE/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/SecurityProperties.java)\(properties prefix "security"\).
 
