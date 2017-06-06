@@ -10,9 +10,9 @@ Using default security password: 78fa095d-3f4c-48b1-ad50-e24c31d5cf35
 
 | ![](http://docs.spring.io/spring-boot/docs/1.5.3.RELEASE/reference/htmlsingle/images/note.png.pagespeed.ce.9zQ_1wVwzR.png "\[Note\]") |
 | :--- |
-| 如果恁需要调整日志级别，请记住默认密码会在INFO级别时打印。`org.springframework.boot.autoconfigure.security` |
+| 如果恁需要调整日志级别，请记住默认密码会在INFO级别时打印。参数：`org.springframework.boot.autoconfigure.security` |
 
-You can change the password by providing a`security.user.password`. This and other useful properties are externalized via[`SecurityProperties`](https://github.com/spring-projects/spring-boot/tree/v1.5.3.RELEASE/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/SecurityProperties.java)\(properties prefix "security"\).
+你可以配置 `security.user.password` 参数，这样就可以自定义密码。它和其它有用的属性也都可以通过[`SecurityProperties`](https://github.com/spring-projects/spring-boot/tree/v1.5.3.RELEASE/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/SecurityProperties.java)\(前缀 "security"\) 来实现外部化。
 
 The default security configuration is implemented in`SecurityAutoConfiguration`and in the classes imported from there \(`SpringBootWebSecurityConfiguration`for web security and`AuthenticationManagerConfiguration`for authentication configuration which is also relevant in non-web applications\). To switch off the default web application security configuration completely you can add a bean with`@EnableWebSecurity`\(this does not disable the authentication manager configuration or Actuator’s security\). To customize it you normally use external properties and beans of type`WebSecurityConfigurerAdapter`\(e.g. to add form-based login\). To also switch off the authentication manager configuration you can add a bean of type`AuthenticationManager`, or else configure the global`AuthenticationManager`by autowiring an`AuthenticationManagerBuilder`into a method in one of your`@Configuration`classes. There are several secure applications in the[Spring Boot samples](https://github.com/spring-projects/spring-boot/tree/v1.5.3.RELEASE/spring-boot-samples/)to get you started with common use cases.
 
